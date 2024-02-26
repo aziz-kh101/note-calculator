@@ -1,0 +1,55 @@
+<div class="container" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Devoir / Project</mat-label>
+    <input formControlName="devoir" matInput required />
+    @if(hasErrors("devoir")){
+    <mat-error>
+      <ng-container
+        *ngTemplateOutlet="numberErrors; context: { $implicit: 'devoir' }"
+      ></ng-container>
+    </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Exam</mat-label>
+    <input formControlName="exam" matInput required />
+    @if(hasErrors("exam")){
+    <mat-error>
+      <ng-container
+        *ngTemplateOutlet="numberErrors; context: { $implicit: 'exam' }"
+      ></ng-container>
+    </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Coff</mat-label>
+    <mat-select formControlName="coff" required>
+      <mat-option value="1">-- 1 --</mat-option>t
+      <mat-option value="2">-- 2 --</mat-option>
+    </mat-select>
+    @if(hasError("coff","required")){
+    <mat-error>field is required</mat-error>
+    }
+  </mat-form-field>
+  <button (click)="deleteSelf()" mat-fab color="warn">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <mat-form-field appearance="outline">
+    <mat-label>Result</mat-label>
+    <input [value]="form.controls['result'].value" matInput disabled />
+  </mat-form-field>
+</div>
+
+<ng-template #numberErrors let-name>
+  @if(hasError("devoir","required")){
+  <span>field is required</span>
+  } @else if(hasError("devoir","pattern")){
+  <span>field should be a number</span>
+  } @else if(hasError("devoir","min") || hasError("devoir","max")){
+  <span>field should be between 0 and 20</span>
+  }
+</ng-template>

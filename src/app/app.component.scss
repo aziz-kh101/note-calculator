@@ -1,0 +1,16 @@
+:host {
+  .container {
+    padding: 2rem;
+
+    h1 {
+      text-align: center;
+    }
+
+    .actions,
+    .total {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 2rem;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="container" [formGroup]="form">
+  @if(subjects){ @for (item of subjects.controls; track index; let index =
+  $index) {
+  <div class="form-content">
+    <app-note-form
+      (delete)="deleteSubjectNote(index)"
+      [form]="item"
+    ></app-note-form>
+    <button mat-fab color="primary" (click)="addSubjectNoteAfter(index)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  } }
+</div>

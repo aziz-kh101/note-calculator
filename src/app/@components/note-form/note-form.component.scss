@@ -1,0 +1,20 @@
+:host {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+
+    padding: 1.5rem 0.5rem 0.1rem;
+    border: solid 1px #303030;
+    border-radius: 0.2rem;
+
+    button {
+      margin-bottom: 1.1rem;
+    }
+  }
+}
