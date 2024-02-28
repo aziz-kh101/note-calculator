@@ -45,11 +45,11 @@
 </div>
 
 <ng-template #numberErrors let-name>
-  @if(hasError("devoir","required")){
-  <span>field is required</span>
-  } @else if(hasError("devoir","pattern")){
-  <span>field should be a number</span>
-  } @else if(hasError("devoir","min") || hasError("devoir","max")){
-  <span>field should be between 0 and 20</span>
+  @if(hasError(name,"required")){
+  <span>{{ name }} field is required</span>
+  } @else if(hasError(name,"pattern")){
+  <span>{{ name }} field should be a number</span>
+  } @else if(hasError(name,"min") || hasError("devoir","max")){
+  <span>{{ name }} field should in [0..20]</span>
   }
 </ng-template>
